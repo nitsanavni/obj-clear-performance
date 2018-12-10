@@ -23,4 +23,19 @@ describe('test object clearing performance', () => {
         console.log('same obj took', new Date() - before)
     });
 
+    it('pre-allocate', () => {
+
+        let arr = new Array(100000);
+
+        let before = new Date();
+        for (let j = 0; j < 1000; j++) {
+            for (let i = 0; i < 100000; i++) {
+                arr[i] = i;
+            }
+        }
+
+        console.log('pre-allocate took', new Date() - before)
+    });
+
+
 });
